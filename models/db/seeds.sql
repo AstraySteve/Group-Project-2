@@ -12,7 +12,7 @@ INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES 
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('Anthony Zetterberg', '3300000', '24', '24', '48');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('Aleksander Barkov', '5900000', '27', '51', '78');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('Mike Hoffman', '5187500', '22', '34', '56');
-INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('JONATHAN HUBERDEAU', '27', '42', '69');
+INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('JONATHAN HUBERDEAU', '5900000', '27', '42', '69');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('VINCENT TROCHECK', '4750000', '31', '44', '75');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('BOBBY RYAN', '7250000', '11', '22', '33');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('MATT DUCHENE', '6000000', '23', '26', '49');
