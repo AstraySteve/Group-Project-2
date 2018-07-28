@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Get all examples
   app.get("/api/hockey", function(req, res) {
-    db.hockey.findAll({}).then(function(dbhockey) {
+    db.player_info.findAll({}).then(function(dbhockey) {
       res.json(dbhockey);
     });
   });
