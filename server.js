@@ -6,7 +6,8 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+// var PORT = process.env.PORT || 3000;
+var port = 3307;
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,7 +39,7 @@ if (process.env.NODE_ENV === "test") {
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      "==> 🌎  Listening on port %s. Visit http://localhost:3000/ in your browser.",
       PORT,
       PORT
     );

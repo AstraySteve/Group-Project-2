@@ -16,10 +16,40 @@ INSERT INTO project_hockey (player_salary) VALUES ('JONATHAN HUBERDEAU', '27', '
 INSERT INTO project_hockey (player_salary) VALUES ('VINCENT TROCHECK', '4750000', '31', '44', '75');
 INSERT INTO project_hockey (player_salary) VALUES ('BOBBY RYAN', '7250000', '11', '22', '33');
 INSERT INTO project_hockey (player_salary) VALUES ('MATT DUCHENE', '6000000', '23', '26', '49');
-INSERT INTO project_hockey (player_salary) VALUES ('ERIK KARLSSON', '6500000')
-INSERT INTO project_hockey (player_salary) VALUESg
-INSERT INTO project_hockey (player_salary) VALUES
-INSERT INTO project_hockey (player_salary) VALUES
+INSERT INTO project_hockey (player_salary) VALUES ('ERIK KARLSSON', '6500000', '9', '53', '62');
+INSERT INTO project_hockey (player_salary) VALUES ('JORDAN STAAL', '6000000', '19', '27', '46');
+INSERT INTO project_hockey (player_salary) VALUES ('JEFF SKINNER', '5725000', '24', '25', '49');
+INSERT INTO project_hockey (player_salary) VALUES ('DOUGIE HAMILTON', '5750000', '17', '27', '44');
+INSERT INTO project_hockey (player_salary) VALUES ('ARTEMI PANARIN', '6000000', '27', '55', '82');
+INSERT INTO project_hockey (player_salary) VALUES ('SETH JONES', '5400000', '16', '41', '57');
+INSERT INTO project_hockey (player_salary) VALUES ('ZACHARY WERENSKI', '925000', '16', '21', '37');
+INSERT INTO project_hockey (player_salary) VALUES ('TAYLOR HALL', '6000000', '39', '54', '93');
+INSERT INTO project_hockey (player_salary) VALUES ('NICO HISCHIER', '925000', '20', '32', '52');
+INSERT INTO project_hockey (player_salary) VALUES ('JORDAN EBERLE', '6000000', '25', '34', '59');
+INSERT INTO project_hockey (player_salary) VALUES ('MATHEW BARZAL', '863333', '22', '63', '85');
+INSERT INTO project_hockey (player_salary) VALUES ('MIKA ZIBANEJAD', '5350000', '27', '20', '47');
+INSERT INTO project_hockey (player_salary) VALUES ('KEVIN SHATTENKIRK', '6650000', '5', '18', '23');
+INSERT INTO project_hockey (player_salary) VALUES ('CLAUDE GIROUX', '8275000', '34', '68', '102');
+INSERT INTO project_hockey (player_salary) VALUES ('JAKUB VORACEK', '8250000', '20', '65', '85');
+INSERT INTO project_hockey (player_salary) VALUES ('JAMES van RIEMSDYK', '7000000', '36', '18', '54');
+INSERT INTO project_hockey (player_salary) VALUES ('EVGENI MALKIN', '9500000', '42', '56', '98');
+INSERT INTO project_hockey (player_salary) VALUES ('SIDNEY CROSBY', '8700000', '29', '60', '89');
+INSERT INTO project_hockey (player_salary) VALUES ('PHIL KESSEL', ' 8000000', '34', '58', '92');
+INSERT INTO project_hockey (player_salary) VALUES ('ALEX OVECHKIN', '9538462', '49', '38', '87');
+INSERT INTO project_hockey (player_salary) VALUES ('EVGENY KUZNETSOV', '7800000', '27', '56', '83');
+INSERT INTO project_hockey (player_salary) VALUES ('NICKLAS BÄCKSTRÖM', '6700000', '21', '50', '71');
+INSERT INTO project_hockey (player_salary) VALUES ('JOHN CARLSON', '8000000', '15', '53', '68');
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
 
 
 
