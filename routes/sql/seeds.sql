@@ -39,17 +39,18 @@ INSERT INTO project_hockey (player_salary) VALUES ('ALEX OVECHKIN', '9538462', '
 INSERT INTO project_hockey (player_salary) VALUES ('EVGENY KUZNETSOV', '7800000', '27', '56', '83');
 INSERT INTO project_hockey (player_salary) VALUES ('NICKLAS BÄCKSTRÖM', '6700000', '21', '50', '71');
 INSERT INTO project_hockey (player_salary) VALUES ('JOHN CARLSON', '8000000', '15', '53', '68');
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
--- INSERT INTO project_hockey (player_salary) VALUES
+INSERT INTO project_hockey (player_salary) VALUES ('JONATHAN TOEWS', '10500000', '20', '32', '52');
+INSERT INTO project_hockey (player_salary) VALUES ('PATRICK KANE', '10500000', '27', '49', '76');
+INSERT INTO project_hockey (player_salary) VALUES ('DUNCAN KEITH', '5538462', '2', '30', '32');
+INSERT INTO project_hockey (player_salary) VALUES ('NATHAN MacKINNON', '6300000', '39', '58', '97');
+INSERT INTO project_hockey (player_salary) VALUES ('TYSON BARRIE', '5500000', '14', '43', '57');
+INSERT INTO project_hockey (player_salary) VALUES ('TYLER SEGUIN', '5750000', '40', '38', '78');
+INSERT INTO project_hockey (player_salary) VALUES ('JAMIE BENN', '9500000', '36', '43', '79');
+INSERT INTO project_hockey (player_salary) VALUES ('JOHN KLINGBERG', '4250000', '8', '59', '67');
+INSERT INTO project_hockey (player_salary) VALUES ('MATT DUMBA', '6000000', '14', '36', '50');
+INSERT INTO project_hockey (player_salary) VALUES ('VLADIMIR TARASENKO', '7500000', '33', '33', '66');
+INSERT INTO project_hockey (player_salary) VALUES ('RYAN OREILLY', '7500000', '24', '37', '61');
+
 
 
 
