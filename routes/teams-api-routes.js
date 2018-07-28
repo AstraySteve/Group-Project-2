@@ -21,13 +21,13 @@ module.exports = function(app) {
     });
 
     //Delete route for removing team from database
-    app.delete('/api/teams/:teamName', function(req, res) {
+    app.delete('/api/teams/:teamname', function(req, res) {
         db.Teams.destroy({
             where: {
-                teamname: req.params.teamName,
+                teamname: req.params.teamname,
             },
         }).then(function(data) {
-            //TODO:maybe return a true or false statement to confirm deletion
+            //will send back either a 1 (true) or 0 (false)
             res.json(data);
         });
     });
@@ -41,7 +41,7 @@ module.exports = function(app) {
                     teamname: req.params.teamName,
                 },
             }).then(function(tableData) {
-                //TODO: ensure that this is what you wanted to be returned
+                //will send back either a 1 (true) or 0 (false)
                 res.json(tableData);
         })
     });
