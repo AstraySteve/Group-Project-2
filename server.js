@@ -25,7 +25,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/users-api-routes")(app);
 require("./routes/teams-api-routes")(app);
-require("./routes/kyle")(app);
+require("./routes/players-api-routes")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

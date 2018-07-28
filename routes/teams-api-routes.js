@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.post('/api/teams', function(req, res) {
         db.Teams.create(req.body).then(function(teamData) {
             //TODO: adjust req.body as needed
-            res.json(teamData);
+            res.json(teamData); //currently returns a json of the posted data
         });
     });
 
