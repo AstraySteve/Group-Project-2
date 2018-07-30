@@ -50,7 +50,11 @@ INSERT INTO project_hockey (player_salary) VALUES ('JOHN KLINGBERG', '4250000', 
 INSERT INTO project_hockey (player_salary) VALUES ('MATT DUMBA', '6000000', '14', '36', '50');
 INSERT INTO project_hockey (player_salary) VALUES ('VLADIMIR TARASENKO', '7500000', '33', '33', '66');
 INSERT INTO project_hockey (player_salary) VALUES ('RYAN OREILLY', '7500000', '24', '37', '61');
-
+-- INSERT INTO project_hockey (player_salary) VALUES 
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
+-- INSERT INTO project_hockey (player_salary) VALUES
 
 
 
