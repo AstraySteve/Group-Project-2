@@ -49,19 +49,19 @@ module.exports = function(sequelize, DataTypes) {
             },
         },
         ranking: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: null,
         },
         goals: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: null,
         },
         assists: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: null,
         },
         total_points: {
-            type: INTEGER,
+            type: DataTypes.INTEGER,
             defaultValue: null,
         },
     });
