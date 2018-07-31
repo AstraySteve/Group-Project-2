@@ -3,22 +3,27 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    //TODO: change to fit homepage/loby as needed
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
-    });
+    res.render("index");
   });
 
   //TODO: add links to other pages
+  app.get("/lobby", function(req, res) {
+    db.Teams.findAll({}).then(function(teamData) {
+      //TODO: handle teamData to be passed to lobby page
+      //res.render("lobby", {handlebars variable hookups})
+      res.render("lobby"); //TEMP CODE REMOVE WHEN DONE
+    });
+  });
+
   app.get("/login", function(req,res) {
     //TODO: link to login page
+    res.render("login"); //Temp code,To modify
   });
 
   app.get("/profile/:userid", function(req,res) {
     //TODO: link to user profile page
+    var userID = req.params.userid;
+    res.render("profilePage", {userName: userID});
   });
 
   //NOTES: might need create user page, create team page, compare team page
