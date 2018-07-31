@@ -3,60 +3,163 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+  <title>Draft Your Team</title>
 </head>
 
 <body>
-    <header>
-        <div class="row">
-            <div class="col-md-12 col-sm-6">
-                <div class = "headercontainer">
-                    <h1><strong>NHL Fantasy Draft</strong></h1>
-                </div>
+
+<nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+            <div>
+                <p class="title">NHL Fantasy Draft</p>
             </div>
         </div>
-    </header>
-
-    <div class="row">      
-        <div class="col-md-2 col-sm-2">
-            <h3>Player 1</h3>
-
+        <div class="level-item has-text-centered">
+            <div>
+                <a href="/home"><p class="title">Return To Lobby</p></a>
+            </div>
         </div>
-        
-        <div class="col-md-2 col-sm-2">
-            <h3>Player 2</h3>
+</nav>
 
-        </div>
+<div class = "icecontainer">
+    <div class = "row">
+            <div class="columns">
+                <div class="column is 4"><h3>Pick Your Team</h3></div>
+                <div class="column is-8">
+                    <h3>Total Spent:</h3><h3 id = "totalSalary"></h3>
+                </div>
+            </div>
+    </div>
+    <div class = "row">   
+        <div class="columns">
+                <div class="column is-half">
+                    <div class="row">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <table class="table">
+                                            <thead>                                              
+                                                <tr><th>Player 1</th></tr>
+                                                <th>Name</th>
+                                                <th>Goals</th>
+                                                <th>Assists</th>
+                                                <th>Points</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                
+                                            </tbody>
+                                    </table>
+                                    <input class="button" type="submit" value="Remove Player">
+                                </div>
 
-        <div class="col-md-2 col-sm-2">
-            <h3>Player 3</h3>
+                                <div class="column is-6">
+                                    <table class="table">
+                                            <thead>
+                                                <tr><th>Player 2</th></tr>
+                                                <th>Name</th>
+                                                <th>Goals</th>
+                                                <th>Assists</th>
+                                                <th>Points</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                
+                                            </tbody>
+                                    </table>
+                                    <input class="button" type="submit" value="Remove Player">
+                                </div>
+                            </div>
+                    </div>
 
-        </div>
+                    <br><br><br>
+                    <div class="row">    
+                            <div class="columns">
+                                    <div class="column is-6 is-offset-2">
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Player 3</th></tr>
+                                                <th>Name</th>
+                                                <th>Goals</th>
+                                                <th>Assists</th>
+                                                <th>Points</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                
+                                            </tbody>
+                                        </table>
+                                        <input class="button" type="submit" value="Remove Player">
+                                    </div>
+                            </div>
+                    </div>
+                    <br><br><br>
+                    <div class="row">
+                            <div class="columns">
+                                    <div class="column is-6">
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Player 4</th></tr>
+                                                <th>Name</th>
+                                                <th>Goals</th>
+                                                <th>Assists</th>
+                                                <th>Points</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                
+                                            </tbody>
+                                        </table>
+                                        <input class="button" type="submit" value="Remove Player">
+                                    </div>
 
-        <div class="col-md-2 col-sm-2">
-            <h3>Player 4</h3>
+                                    <div class="column is-6">
+                                        <table class="table">
+                                            <thead>
+                                                <tr><th>Player 5</th></tr>
+                                                <th>Name</th>
+                                                <th>Goals</th>
+                                                <th>Assists</th>
+                                                <th>Points</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                
+                                            </tbody>
+                                        </table>
+                                        <input class="button" type="submit" value="Remove Player">
+                                    </div>
+                            </div>
+                    </div>
 
-        </div>
+            </div> 
+            <div class="column is-half">
+                    <table class="table">
+                            <thead>
+                                <tr><th>Available Players</th></tr>
+                                <th><abbr title="Number">#</abbr></th>
+                                <th>Name</th>
+                                <th>Goals</th>
+                                <th>Assists</th>
+                                <th>Points</th>
+                                <th>Salary</th>
+                              </tr>
+                              
+                            </thead>
+                            <tbody>
 
-        <div class="col-md-2 col-sm-2">
-            <h3>Player 5</h3>
+                            </tbody>
+                            
+                    </table>
+                    <input class="button" type="submit" value="Select Player">
+            </div>
 
-        </div>
     </div>
 
-    <div class="row">      
-        <div class="col-md-6 col-sm-6">
-            <table class = "playerTable">
-                    <tr><th>Available Players</th></tr>
-                    <br>
-                    <th>Player Name</th><th>Salary</th><th>Goals</th><th>Assists</th><th>Points</th>
-            </table>
-            <br><br>
-        </div>
-    </div>
 
+</div>
+<script src="style.js"></script>
 </body>
 
 </html>
