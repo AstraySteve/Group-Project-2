@@ -1,7 +1,55 @@
 <!--
     HTML for lobby page here
     TEMP HTML
+
+
+
+
+
 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <title>Home Page</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.amd.js">
+
+  document.getElementById("kyledata").innerHTML += data;
+  
+  
+  
+  </script>
+</head>
+
+<body>
+  <div id="kyledata"></div>
+
+  
+  
+  <script type="text/javascript">
+
+  var myinfo = "<p> Welcome to NHL Fantasy Draft {{name}} {{city}} </p>";
+
+  var template = handlebars.compile(myinfo);
+
+  var data = template({name: "kyle", city: toronto});
+
+
+  
+  </script>
+
+
+
+</body>
+
+</html>
+
+
+
 <h1>THIS IS THE LOBBY PAGE</h1>
 <a href="/login"><button id="login">login</button></a>
 <a href="/login"><button id="sign up">Sign up</button></a>
