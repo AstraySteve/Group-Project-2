@@ -1,0 +1,30 @@
+<!--
+    handlebar for the signup user page
+-->
+<h1>SIGNUP PAGE TEST</h1>
+<form id="signup" name="signup" method="post" action="/signup">
+    <label for="email">Email Address</label>
+    <input class="text" name="email" type="email" id="email" />
+    <label for="password">Password</label>
+    <input name="password" type="password" id="password"/>
+    <input class="btn" id="submit" type="submit" value="Sign Up" />
+</form>
+
+<!--Test code, remove when done
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script >
+    $('body').on('click','#submit',function(){
+        console.log("submit button clicked");
+        $.ajax({
+            method: "POST",
+            url: `/signup`,
+            data:{
+                email: $("#email").val(),
+                password: $("#password").val()
+            }
+        });
+    });
+</script>-->

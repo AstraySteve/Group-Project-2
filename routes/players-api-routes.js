@@ -8,7 +8,22 @@ module.exports = function(app) {
     });
   });
 
-  //TODO: these are for admin control
+  //update boolean isDrafted by id
+  app.put("/api/hockey/:id", function(req,res) {
+    db.player_info.update(
+      req.body,
+      {
+        where: {
+          id: req.params.id,
+        }
+      }
+    ).then(function(dbhockey) {
+      res.json(dbhockey);
+    });
+  });
+
+  //These are for admin control
+  /*
   //Post a player to list
   app.post("/api/hockey", function(req, res) {
     db.player_info.create(req.body).then(function(dbhockey) {
@@ -22,4 +37,5 @@ module.exports = function(app) {
       res.json(dbhockey);
     });
   });
+  */
 };
