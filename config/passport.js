@@ -1,4 +1,5 @@
 var bCrypt = require('bcrypt-nodejs');
+
 module.exports = function(passport, user) {
  
     var User = user;
@@ -6,28 +7,28 @@ module.exports = function(passport, user) {
 
     passport.use('local-signup', new LocalStrategy(
         {
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password',
             passReqToCallback: true // allows us to pass back the entire request to the callback   
         }, 
-        function(req, email, password, done) {
+        function(req, username, password, done) {
             var generateHash = function(password) {
                 return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
             };
             User.findOne({
                 where: {
-                    username: email
+                    username: username
                 }
             }).then(function(user) {
                 if (user){
                     return done(null, false, {
-                        message: 'That email is already taken'
+                        message: 'That username is already taken'
                     });
                 } else{
                     var userPassword = generateHash(password);
                     var data =
                         {
-                            username: email,
+                            username: username,
                             password: userPassword,
                         };
              
@@ -48,23 +49,23 @@ module.exports = function(passport, user) {
     passport.use('local-signin', new LocalStrategy(
         {
             // by default, local strategy uses username and password, we will override with email
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password',
             passReqToCallback: true // allows us to pass back the entire request to the callback
         },
-        function(req, email, password, done) {
+        function(req, username, password, done) {
             var User = user;
             var isValidPassword = function(userpass, password) {
                 return bCrypt.compareSync(password, userpass);
             }
             User.findOne({
                 where: {
-                    username: email
+                    username: username
                 }
             }).then(function(user) {
                 if (!user) {
                     return done(null, false, {
-                        message: 'Email does not exist'
+                        message: 'Username does not exist'
                     });
                 }
                 if (!isValidPassword(user.password, password)) {

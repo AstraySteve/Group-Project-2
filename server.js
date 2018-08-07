@@ -3,8 +3,9 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
-var passport   = require('passport')
-var session    = require('express-session')
+var passport   = require('passport');
+var session    = require('express-session');
+var flash=require("connect-flash");
 
 var db = require("./models");
 
@@ -17,7 +18,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(flash());
+app.use(session({ secret: 'secret',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 

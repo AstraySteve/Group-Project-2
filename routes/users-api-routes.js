@@ -42,7 +42,7 @@ module.exports = function(app) {
     app.delete('/api/users/:userid', function(req,res) {
         db.Users.destroy({
             where: {
-                id: req.params.userid,
+                username: req.params.userid,
             },
         }).then(function(data) {
             //will send back either a 1 (true) or 0 (false)

@@ -9,4 +9,59 @@
         - Ranking
         - Win/Lose ratio
 -->
-<h1>This is the profile page of {{userName}}</h1>
+<div class="container">
+    <h1>{{userName}}</h1>
+    <button type="btn" id="logout">Logout</button>
+</div>
+<hr>
+
+<h3>Team Name: <span id="teamName">{{teamName}}</span></h3>
+<table>
+    <tr>
+        <th style="padding: 8px; text-align: left">Player</th>
+        <th style="padding: 8px; text-align: left">Cost</th>
+        <th style="padding: 8px; text-align: left">Goals</th>
+        <th style="padding: 8px; text-align: left">Assists</th>
+        <th style="padding: 8px; text-align: left">Total</th>
+    </tr>
+    {{#each playerList}}
+        <tr>
+            <td style="padding: 8px; text-align: left">{{this}}</td>
+            <td style="padding: 8px; text-align: left">300000</td>
+            <td style="padding: 8px; text-align: left">20</td>
+            <td style="padding: 8px; text-align: left">4</td>
+            <td style="padding: 8px; text-align: left">60</td>
+        </tr>
+    {{/each}}
+</table>
+<hr>
+<table>
+    <tr>
+        <th style="padding: 8px; text-align: left">Ranking</th>
+        <th style="padding: 8px; text-align: left">Total Cost</th>
+        <th style="padding: 8px; text-align: left">Total Goals</th>
+        <th style="padding: 8px; text-align: left">Total Assists</th>
+        <th style="padding: 8px; text-align: left">Total</th>
+    </tr>
+    <tr>
+        <td style="padding: 8px; text-align: left">1</td>
+        <td style="padding: 8px; text-align: left">60000000</td>
+        <td style="padding: 8px; text-align: left">20</td>
+        <td style="padding: 8px; text-align: left">4</td>
+        <td style="padding: 8px; text-align: left">60</td>
+    </tr>
+</table>
+<hr>
+
+<button type="btn" id="createTeam" style="display: hidden">Create Team</button>
+<button type="btn" id="manageTeam" style="display: hidden">Manage Team</button>
+<button type="btn" id="deleteTeam" style="display: hidden">Delete Team</button>
+
+<!-- to be implemented in future updates
+<button type="btn" id="deleteAccount" data-name="{{userName}}">Delete Account</button>
+-->
+
+<!-- Custom Script-->
+<script src="/js/profile.js" type="text/javascript"></script>
+
+
