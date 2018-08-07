@@ -64,6 +64,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             defaultValue: null,
         },
+        total_cost:{
+            type: DataTypes.FLOAT,
+            defaultValue:null,
+        }
     });
     return Teams;
 };

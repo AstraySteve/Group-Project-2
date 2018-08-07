@@ -3,13 +3,15 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
-var passport   = require('passport')
-var session    = require('express-session')
+var passport   = require('passport');
+var session    = require('express-session');
+var flash=require("connect-flash");
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+// var port = 3307;
 
 // Middleware
 // For BodyParser
@@ -17,7 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(flash());
+app.use(session({ secret: 'secret',resave: true, saveUninitialized:true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
