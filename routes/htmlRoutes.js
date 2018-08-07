@@ -6,12 +6,26 @@ module.exports = function(app, passport) {
     res.render("index");
   });
 
+  var welcome = "Welcome";
+  var greetings = " log in to begin constructing your Team!";
+  var rules2 = "the salary cap of $30 million. Compete against other challengers to see where you rank on the leaderboard.";
+  var subtitle = "Rules:";
+  var rules = "Choose from the list of players below to make a team of 5 skaters. Your challenge is to build your team within";
+  
   app.get("/lobby", function(req, res) {
-    db.Teams.findAll({}).then(function(teamData) {
+    // db.Teams.findAll({}).then(function(teamData) {
       //TODO: handle teamData to be passed to lobby page
       //res.render("lobby", {handlebars variable hookups})
-      res.render("lobby"); //TEMP CODE REMOVE WHEN DONE
-    });
+      res.render("lobby", {
+        welcome: welcome,
+        greetings: greetings,
+        rules2: rules2,
+        
+        subtitle: subtitle,
+        
+        rules: rules
+      }); //TEMP CODE REMOVE WHEN DONE
+    // });
   });
 
   //LOGIN
@@ -33,33 +47,72 @@ module.exports = function(app, passport) {
   //Login redirects
   app.post('/signup', passport.authenticate('local-signup', 
     {
-      //successRedirect: '/profile', //TODO fix url to account for different users
+      //successRedirect: '/profile',
       failureRedirect: '/signup',
-      //failureFlash: true, 
+      failureFlash: true, 
     }),function(req,res){
-      res.redirect('/profile/' + req.body.email);
+      //console.log("THIS HERE!" + JSON.stringify(req.body));
+      res.redirect('/profile/' + req.body.username);
     }
   );
   app.post('/signin', passport.authenticate('local-signin',
     {
       failureRedirect: '/signin',
-      //failureFlash: true,
+      failureFlash: true,
     }),function(req, res){
       //console.log("THIS HERE!" + JSON.stringify(req.body));
-      res.redirect('/profile/' + req.body.email); 
+      res.redirect('/profile/' + req.body.username); 
     }
   );
 
-
-  //TODO: Figure out how to get userid in the redirects
   app.get("/profile/:userid", isLoggedIn, function(req,res) {
     //link to user profile page
     var userID = req.params.userid;
-    res.render("profilePage", {userName: userID});
+    db.Teams.findOne({
+      where:{teamowner: userID},
+    }).then(function(data){
+      //TODO: handle data to be displayed for team stats
+      //if null return blank, else return team data
+      var teamName = "";
+      var playerList = [];
+      if (data!=null){
+        teamName = data.teamname;
+        playerList = [data.player1, data.player2, data.player3, data.player4, data.player5];
+      }
+      res.render("profilePage", {userName: userID, teamName: teamName, playerList: playerList});
+    });
+  });
+  
+  //Samy's adds for the team create page
+  app.get("/teamCreate", function(req, res) {
+    db.player_info.findAll({}).then(function(playerList) {
+      res.render("teamCreate", {playerList});
+    });
   });
 
-  //NOTES: might need create user page, create team page, compare team page
-  
+
+  app.put('/teamCreate/update', function(req, res){
+    db.player_info.update(req.body.player_info_id, function(result){
+        console.log(result);
+        response.redirect('/');
+    })
+  });
+
+  app.get("/teamCreate", function(req, res) {
+    db.teams.findAll({}).then(function(teamList) {
+      res.render("teamCreate", {teamList});
+    });
+  });
+
+
+  app.put('/teamCreate/update', function(req, res){
+    db.teams.update(req.body.player_info_id, function(result){
+        console.log(result);
+        response.redirect('/');
+    })
+  });
+  //End of Samy's adds for the team create page
+
   //TEST CODE REMOVE WHEN DONE
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {

@@ -1,5 +1,5 @@
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('Auston Matthews', '925000', '34', '29', '63');
-INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('John Taveras', '11000000', '37', '47', '86' );
+INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('John Taveras', '11000000', '37', '47', '86');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES('Nazem Kadri', '4500000', '32', '23', '55');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('Mitch Marner', '894167', '22', '47', '69');
 INSERT INTO player_info (player_name, cap, goals, assists, total_points) VALUES ('Patrick Marleau', '6250000', '27', '20', '47');

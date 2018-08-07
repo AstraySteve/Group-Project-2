@@ -1,0 +1,236 @@
+<nav class="level is-mobile">
+        <div class="level-item">
+            <div>
+                <p class="title">NHL Fantasy Draft</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <a href="/home"><p class="title">Return To Lobby</p></a>
+            </div>
+        </div>
+</nav>
+
+<div class = "banner is-mobile">
+    <div class="columns">
+        <div class="column is-4">
+            <h3>Total Spent:</h3><h3 id = "totalSalary">{{this.total_salary}}</h3>
+        </div>
+        <div class="column is-4">
+                <h3>Total Points:</h3><h3 id = "totalPoints">{{this.total_points}}</h3>
+        </div>
+
+    </div>
+</div>
+
+<div class = "icecontainer">
+    <div class = "icebackground"></div>
+
+    <div class = "row"> 
+
+        <div class="columns">
+                <div class="column is-6">
+                    <div class="row">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <table class="table player1Table">
+                                            <thead>                                              
+                                                <tr><th>Player 1</th></tr>
+                                                <th>Name</th>
+                                                <th>G</th>
+                                                <th>A</th>
+                                                <th>Pts</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- Append Player 1 Table-->
+                                                <div class = "col-is-6">
+                                                {{#each playerList}}
+                                                <!--{{#unless this.isDrafted}}-->
+                                                    <pre>{{this.id}}. {{this.player_name}}. {{this.goals}}. {{this.assists}}. {{this.total_points}}</pre>
+                                                </div>
+                                                <div class = "col-md-3 text-center">
+                                                    <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                                        <input type="hidden" name="player_info_id" type="text"
+                                                        value={{this.id}}>
+                                                        <br>
+                                                        <button type = "submit" class="btn btn-default">Remove Player</button>
+                                                    </form>
+                                                </div>                                        
+                                                <!--{{/unless}}-->
+                                                {{/each}}
+
+                                    </table>
+                                    <input class="button" type="submit" value="Remove Player">
+                                </div>
+
+                                <div class="column is-6">
+                                    <table class="table player2Table">
+                                            <thead>
+                                                <tr><th>Player 2</th></tr>
+                                                <th>Name</th>
+                                                <th>G</th>
+                                                <th>A</th>
+                                                <th>Pts</th>
+                                            </tr>
+                                            </thead>
+                                            <!-- Append Player 2 Table-->
+                                                <div class = "col-is-6">
+                                                {{#each playerList}}
+                                                <!--{{#unless this.isDrafted}}-->
+                                                    <pre>{{this.id}}. {{this.player_name}}. {{this.goals}}. {{this.assists}}. {{this.total_points}}</pre>
+                                                </div>
+                                                <div class = "col-md-3 text-center">
+                                                    <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                                        <input type="hidden" name="player_info_id" type="text"
+                                                        value={{this.id}}>
+                                                        <br>
+                                                        <button type = "submit" class="btn btn-default">Remove Player</button>
+                                                    </form>
+                                                </div>                                        
+                                                <!--{{/unless}}-->
+                                                {{/each}}
+                                    </table>
+                                    <input class="button" type="submit" value="Remove Player">
+                                </div>
+                            </div>
+                    </div>
+
+                    <br><br><br>
+                    <div class="row">    
+                            <div class="columns">
+                                    <div class="column is-6 is-offset-2">
+                                        <table class="table player3Table">
+                                            <thead>
+                                                <tr><th>Player 3</th></tr>
+                                                <th>Name</th>
+                                                <th>G</th>
+                                                <th>A</th>
+                                                <th>Pts</th>
+                                            </tr>
+                                            </thead>
+                                            <!-- Append Player 3 Table-->
+                                                <div class = "col-is-6">
+                                                {{#each playerList}}
+                                                <!--{{#unless this.isDrafted}}-->
+                                                    <pre>{{this.id}}. {{this.player_name}}. {{this.goals}}. {{this.assists}}. {{this.total_points}}</pre>
+                                                </div>
+                                                <div class = "col-md-3 text-center">
+                                                    <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                                        <input type="hidden" name="player_info_id" type="text"
+                                                        value={{this.id}}>
+                                                        <br>
+                                                        <button type = "submit" class="btn btn-default">Remove Player</button>
+                                                    </form>
+                                                </div>                                        
+                                                <!--{{/unless}}-->
+                                                {{/each}}
+                                        </table>
+                                        <input class="button" type="submit" value="Remove Player">
+                                    </div>
+                            </div>
+                    </div>
+                    <br><br><br>
+                    <div class="row">
+                            <div class="columns">
+                                    <div class="column is-6">
+                                        <table class="table player4Table">
+                                            <thead>
+                                                <tr><th>Player 4</th></tr>
+                                                <th>Name</th>
+                                                <th>G</th>
+                                                <th>A</th>
+                                                <th>Pts</th>
+                                            </tr>
+                                            </thead>
+                                            <!-- Append Player 4 Table-->
+                                                <div class = "col-is-6">
+                                                {{#each playerList}}
+                                                <!--{{#unless this.isDrafted}}-->
+                                                    <pre>{{this.id}}. {{this.player_name}}. {{this.goals}}. {{this.assists}}. {{this.total_points}}</pre>
+                                                </div>
+                                                <div class = "col-md-3 text-center">
+                                                    <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                                        <input type="hidden" name="player_info_id" type="text"
+                                                        value={{this.id}}>
+                                                        <br>
+                                                        <button type = "submit" class="btn btn-default">Remove Player</button>
+                                                    </form>
+                                                </div>                                        
+                                                <!--{{/unless}}-->
+                                                {{/each}}                                            
+                                        </table>
+                                        <input class="button" type="submit" value="Remove Player">
+                                    </div>
+
+                                    <div class="column is-6">
+                                        <table class="table player5Table">
+                                            <thead>
+                                                <tr><th>Player 5</th></tr>
+                                                <th>Name</th>
+                                                <th>G</th>
+                                                <th>A</th>
+                                                <th>Pts</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- Append Player 5 Table-->
+                                                <div class = "col-is-6">
+                                                {{#each playerList}}
+                                                <!--{{#unless this.isDrafted}}-->
+                                                    <pre>{{this.id}}. {{this.player_name}}. {{this.goals}}. {{this.assists}}. {{this.total_points}}</pre>
+                                                </div>
+                                                <div class = "col-md-3 text-center">
+                                                    <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                                        <input type="hidden" name="player_info_id" type="text"
+                                                        value={{this.id}}>
+                                                        <br>
+                                                        <button type = "submit" class="btn btn-default">Remove Player</button>
+                                                    </form>
+                                                </div>                                        
+                                                <!--{{/unless}}-->
+                                                {{/each}}
+                                        </table>
+                                        <input class="button" type="submit" value="Remove Player">
+                                    </div>
+                            </div>
+                    </div>
+
+            <div class="column is-6">
+            {{#each playerList}}
+            <!--{{#unless this.isDrafted}}-->
+                    <table class="table playerTable">
+                                <thead>
+                                    <tr><th>Available Players</th></tr>
+                                    <th><abbr title="Number">#</abbr></th>
+                                    <th>Name</th>
+                                    <th>Goals</th>
+                                    <th>Assists</th>
+                                    <th>Points</th>
+                                    <th>Salary</th>
+                                    <th>Is Chosen</th>
+                                </tr>
+                                </thead>
+                                <!-- Append Player Table-->
+                        <div class = "col-is-6">
+                            <pre>{{this.id}}. {{this.player_name}}. {{this.cap}}. {{this.goals}}. {{this.assists}}. {{this.total_points}} {{this.isDrafted}}</pre>
+                        </div>
+                        <div class = "col-md-3 text-center">
+                            <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                <input type="hidden" name="player_info_id" type="text"
+                                value={{this.id}}>
+                                <br>
+                                <button type = "submit" class="btn btn-default">Select Player</button>
+                            </form>
+                        </div>
+
+
+                    </table>
+                    <br>
+                    <input class="button" type="submit" value="Save Team">
+            <!--{{/unless}}-->
+            {{/each}}
+            </div>
+
+        </div>
+    </div>
+
+</div>
