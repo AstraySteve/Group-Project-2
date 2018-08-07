@@ -14,12 +14,12 @@ module.exports = function(app) {
         });
     });
     
-    //Get route for retrieving a single user info using the username as lookup
+    //Get route for retrieving a single user info
     //TODO: figure out how to keep passwords safe during checking
-    app.get('/api/users/:username', function(req,res) {
+    app.get('/api/users/:userid', function(req,res) {
         db.Users.findOne({
             where: {
-                username: req.params.username,
+                username: req.params.userid,
             },
         }).then(function(userData){
             res.json(userData);
@@ -37,6 +37,7 @@ module.exports = function(app) {
             res.json(userData);
         });
     });
+<<<<<<< HEAD
 
     //Delete user with user id userid
     app.delete('/api/users/:userid', function(req,res) {
@@ -49,4 +50,6 @@ module.exports = function(app) {
             res.json(data);
         });
     });
+=======
+>>>>>>> 74e8b14d9ec5a75c074a059179186b863ca20f61
 };

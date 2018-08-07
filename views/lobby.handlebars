@@ -1,7 +1,62 @@
 <!--
     HTML for lobby page here
     TEMP HTML
+
+
 -->
-<h1>THIS IS THE LOBBY PAGE</h1>
-<a href="/signin"><button id="login">login</button></a>
-<a href="/signup"><button id="sign up">Sign up</button></a>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="../public/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <title>lobby Page</title>
+</head>
+
+<body>
+ 
+
+  <div class="columns">
+      <div class="column top">
+            <h1 id="welcomefont">{{welcome}}</h1>
+            <p>{{greetings}}</p>
+      </div>
+  </div>
+
+    <div class="rulesection">
+        <h3>{{subtitle}}</h3>
+        <p>{{rules}}</p>
+        {{!-- <br> --}}
+        <p>{{rules2}}</p>
+    </div>
+
+    <table>
+        <thead> 
+            <th class="pad">Player Name</th> 
+            <br>
+            <th class="pad">Salary</th> 
+            <br>
+            <th class="pad">Goals</th>
+            <th class="pad">Assists</th> 
+            <th class="pad">Total Points</th>
+        </thead> 
+        <tbody> 
+            
+            <tr> 
+                <td></td> 
+                <td></td> 
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> 
+            
+        </tbody> 
+    </table> 
+
+<a href="/login"><button id="login">login</button></a>
+<a href="/login"><button id="sign up">Sign up</button></a>
+</body>
+
+</html>
