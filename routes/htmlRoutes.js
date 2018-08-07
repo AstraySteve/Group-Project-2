@@ -60,6 +60,36 @@ module.exports = function(app, passport) {
 
   //NOTES: might need create user page, create team page, compare team page
   
+  //Samy's adds for the team create page
+  app.get("/teamCreate", function(req, res) {
+    db.player_info.findAll({}).then(function(playerList) {
+      res.render("teamCreate", {playerList});
+    });
+  });
+
+
+  app.put('/teamCreate/update', function(req, res){
+    db.player_info.update(req.body.player_info_id, function(result){
+        console.log(result);
+        response.redirect('/');
+    })
+  });
+
+  app.get("/teamCreate", function(req, res) {
+    db.teams.findAll({}).then(function(teamList) {
+      res.render("teamCreate", {teamList});
+    });
+  });
+
+
+  app.put('/teamCreate/update', function(req, res){
+    db.teams.update(req.body.player_info_id, function(result){
+        console.log(result);
+        response.redirect('/');
+    })
+  });
+  //End of Samy's adds for the team create page
+
   //TEST CODE REMOVE WHEN DONE
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
