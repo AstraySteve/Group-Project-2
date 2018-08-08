@@ -5,56 +5,77 @@
 
 -->
 
-<!DOCTYPE html>
-<html lang="en">
+<nav class="level is-mobile">
+        <div class="level-item">
+            <div>
+                <p class="title">NHL Fantasy Draft</p>
+            </div>
+        </div>
+        <div class="level-item has-text-centered">
+            <div>
+                <a href="/home"><p class="title">Return To Lobby</p></a>
+            </div>
+        </div>
+</nav>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
-  <link rel="stylesheet" href="../public/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>lobby Page</title>
-</head>
+<div class = "banner is-mobile">
+    <div class="columns">
+        <div class="column is-4">
+            <h3>Total Spent:</h3><h3 id = "totalSalary">{{this.total_salary}}</h3>
+        </div>
+        <div class="column is-4">
+                <h3>Total Points:</h3><h3 id = "totalPoints">{{this.total_points}}</h3>
+        </div>
 
-<body>
- 
-
-  <div class="columns">
-      <div class="column top">
-            <h1 id="welcomefont">{{welcome}}</h1>
-            <p>{{greetings}}</p>
-      </div>
-  </div>
-
-    <div class="rulesection">
-        <h3>{{subtitle}}</h3>
-        <p>{{rules}}</p>
-        {{!-- <br> --}}
-        <p>{{rules2}}</p>
     </div>
+</div>
 
-    <table>
-        <thead> 
-            <th class="pad">Player Name</th> 
-            <br>
-            <th class="pad">Salary</th> 
-            <br>
-            <th class="pad">Goals</th>
-            <th class="pad">Assists</th> 
-            <th class="pad">Total Points</th>
-        </thead> 
-        <tbody> 
-            
-            <tr> 
-                <td></td> 
-                <td></td> 
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr> 
-            
-        </tbody> 
-    </table> 
+<div class = "icecontainer">
+    <div class = "icebackground"></div>
 
+    <div class = "row"> 
+
+        <div class="columns">
+                <div class="column is-6">
+                    <div class="row">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <table class="table player1Table">
+                                            <thead>                                              
+                                                <tr>
+                                                <th>Team Name</th>
+                                                <th>Total Points</th>
+                                                <th>Salary</th>
+                                                </tr>
+                                            </thead>
+                                            <!-- Append Player 1 Table-->
+                                                <div class = "col-is-6">
+                                                {{#each playerList}}
+                                                <!--{{#unless this.isDrafted}}-->
+                                                    <pre>{{this.id}}. {{this.player_name}}. {{this.goals}}. {{this.assists}}. {{this.total_points}}</pre>
+                                                </div>
+                                                <div class = "col-md-3 text-center">
+                                                    <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
+                                                        <input type="hidden" name="player_info_id" type="text"
+                                                        value={{this.id}}>
+                                                        <br>
+                                                        <button type = "submit" class="btn btn-default">Remove Player</button>
+                                                    </form>
+                                                </div>                                        
+                                                <!--{{/unless}}-->
+                                                {{/each}}
+
+                                    </table>
+                                    <input class="button" type="submit" value="Remove Player">
+                                </div>
+                            </div>
+
+                    </div>   
+                </div>
+        </div>
+</div>
+
+    
 <a href="/login"><button id="login">login</button></a>
 <a href="/login"><button id="sign up">Sign up</button></a>
 </body>
