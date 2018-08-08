@@ -1,65 +1,43 @@
 <!--
     HTML for lobby page here
-    TEMP HTML
-
-
 -->
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="container header">
+    <h1><span class="chrome">NHL</span><span class="dreams">  Fantasy Draft</span></h1>
+    <a href="/signin"><button class="btn btn-light btn-sm">Sign In</button></a>
+    <a href="/signup"><button class="btn btn-light btn-sm">Sign Up</button></a>
+</div>
 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
-  <link rel="stylesheet" href="../public/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>lobby Page</title>
-</head>
+<div class="container content">
+    <h2 class="dreams">Welcome to the NHL Fantasy Draft League</h2>
+    <p>Log in to begin consructing your Team!</p>
+    <hr>
+    <h3 class="dreams">Rules</h3>
+    <p>Choose from the list of players below to make a team of 5 skaters. Your challenge is to build your team within</p>
+    <p>the salary cap of $30 million. Compete against other challengers to see where you rank on the leaderboard.</p>
+    <hr>
 
-<body>
- 
-
-  <div class="columns">
-      <div class="column top">
-            <h1 id="welcomefont">Welcome</h1>
-            <p>log in to begin constructing your Team!</p>
-      </div>
-  </div>
-
-    <div class="rulesection">
-        <h3>Rules:</h3>
-        <p>Choose from the list of players below to make a team of 5 skaters. Your challenge is to build your team within</p>
-        {{!-- <br> --}}
-        <p>the salary cap of $30 million. Compete against other challengers to see where you rank on the leaderboard.</p>
-    </div>
-
-    {{#each teamName}}
-        <h2>Team Name: {{this.teamname}}</h2>
-    {{/each}}
+    <h2 class="dreams">Teams</h2>
     <table>
-        <thead> 
-            <th class="pad">Player Name</th> 
-            <br>
-            <th class="pad">Salary</th> 
-            <br>
-            <th class="pad">Goals</th>
-            <th class="pad">Assists</th> 
-            <th class="pad">Total Points</th>
-        </thead> 
-        <tbody> 
-            
-            <tr> 
-                <td></td> 
-                <td></td> 
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr> 
-            
-        </tbody> 
-    </table> 
-
-<a href="/signin"><button id="signin">Sign In</button></a>
-<a href="/signup"><button id="signup">Sign Up</button></a>
-</body>
-
-</html>
+        <tr>
+            <th>Ranking</th>
+            <th>Team Name</th>
+            <th>Team Owner</th>
+            <th>Goals</th>
+            <th>Assists</th>
+            <th>Total Points</th>
+            <th>Cost</th>
+        </tr>
+        {{#each teamData}}
+            <tr>
+                <td>{{this.ranking}}</td>
+                <td>{{this.teamname}}</td>
+                <td>{{this.teamowner}}</td>
+                <td>{{this.goals}}</td>
+                <td>{{this.assists}}</td>
+                <td>{{this.total_points}}</td>
+                <td>${{this.total_cost}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>

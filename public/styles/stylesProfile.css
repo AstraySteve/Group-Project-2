@@ -1,0 +1,93 @@
+/* General CSS */
+body {
+    font-family: Helvetica, sans-serif;
+    color: white;
+    background-image: url("/images/icerink.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td,th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #dddddd;
+    color: black;
+}
+
+hr{
+    border: 1px solid red;
+}
+
+.red {
+    height: 50px;
+    text-align: center;
+    color: white;
+}
+
+.dreams {
+    position: relative;
+    margin: 0px;
+    font-family: 'Mr Dafoe', cursive;
+    color: #F975F7 ;
+    -webkit-text-stroke: 1px #f008b7;
+    -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+}
+
+.dataContainer{
+    height: 80vh;
+    overflow: scroll;
+}
+
+/* header area of the website */
+
+.header {
+    padding: 20px;
+    background-color: #21242A;
+}
+
+.button {
+    padding-right: 40px;
+    padding-left: 40px;
+    border-radius: 0;
+}
+
+
+
+/* Second Header */
+
+.subhead {
+    color: white;
+}
+
+.content {
+    margin-top: 2vh;
+    background-color:#21242A;
+    padding: 10px;
+};
+
+.box {
+    padding-top: 40px;
+    margin-top: 40px;
+}
+
+/* Main Content Area */
+
+.content2 {
+    margin-top: 5vh;
+    padding: 10px;
+    background-color: #21242A;
+    opacity: 0.8;
+}
+
+.white-box {
+    background-color: white;
+    height: 500px;
+}

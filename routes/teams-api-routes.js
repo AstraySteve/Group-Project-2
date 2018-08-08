@@ -12,6 +12,14 @@ module.exports = function(app) {
         });
     });
 
+    app.get('/api/teams/:teamname', function(req, res) {
+        db.Teams.findOne({
+            where: {teamname: req.params.teamname}
+        }).then(function(data){
+            res.json(data);
+        })
+    })
+
     //Post route for creating team and adding to the db
     app.post('/api/teams', function(req, res) {
         db.Teams.create(req.body).then(function(teamData) {
