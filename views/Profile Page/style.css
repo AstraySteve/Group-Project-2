@@ -16,7 +16,15 @@ body {
 
 .header {
     padding: 20px;
+    background-color: #21242A;
 }
+
+.button {
+    padding-right: 40px;
+    padding-left: 40px;
+    border-radius: 0;
+}
+
 
 
 /* Second Header */
