@@ -5,6 +5,7 @@
 
 -->
 
+<<<<<<< HEAD
 <nav class="level is-mobile">
         <div class="level-item">
             <div>
@@ -27,6 +28,33 @@
                 <h3>Total Points:</h3><h3 id = "totalPoints">{{this.total_points}}</h3>
         </div>
 
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <link rel="stylesheet" href="../public/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <title>lobby Page</title>
+</head>
+
+<body>
+ 
+
+  <div class="columns">
+      <div class="column top">
+            <h1 id="welcomefont">Welcome</h1>
+            <p>log in to begin constructing your Team!</p>
+      </div>
+  </div>
+
+    <div class="rulesection">
+        <h3>Rules:</h3>
+        <p>Choose from the list of players below to make a team of 5 skaters. Your challenge is to build your team within</p>
+        {{!-- <br> --}}
+        <p>the salary cap of $30 million. Compete against other challengers to see where you rank on the leaderboard.</p>
+>>>>>>> ca5261b92bc6c415394fac92d32ddc0964c55994
     </div>
 </div>
 
@@ -70,6 +98,7 @@
                                 </div>
                             </div>
 
+<<<<<<< HEAD
                     </div>   
                 </div>
         </div>
@@ -78,6 +107,36 @@
     
 <a href="/login"><button id="login">login</button></a>
 <a href="/login"><button id="sign up">Sign up</button></a>
+=======
+    {{#each teamName}}
+        <h2>Team Name: {{this.teamname}}</h2>
+    {{/each}}
+    <table>
+        <thead> 
+            <th class="pad">Player Name</th> 
+            <br>
+            <th class="pad">Salary</th> 
+            <br>
+            <th class="pad">Goals</th>
+            <th class="pad">Assists</th> 
+            <th class="pad">Total Points</th>
+        </thead> 
+        <tbody> 
+            
+            <tr> 
+                <td></td> 
+                <td></td> 
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr> 
+            
+        </tbody> 
+    </table> 
+
+<a href="/signin"><button id="signin">Sign In</button></a>
+<a href="/signup"><button id="signup">Sign Up</button></a>
+>>>>>>> ca5261b92bc6c415394fac92d32ddc0964c55994
 </body>
 
 </html>

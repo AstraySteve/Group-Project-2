@@ -37,4 +37,19 @@ module.exports = function(app) {
             res.json(userData);
         });
     });
+<<<<<<< HEAD
+=======
+
+    //Delete user with user id userid
+    app.delete('/api/users/:userid', function(req,res) {
+        db.Users.destroy({
+            where: {
+                username: req.params.userid,
+            },
+        }).then(function(data) {
+            //will send back either a 1 (true) or 0 (false)
+            res.json(data);
+        });
+    });
+>>>>>>> ca5261b92bc6c415394fac92d32ddc0964c55994
 };
