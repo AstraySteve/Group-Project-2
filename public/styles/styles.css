@@ -1,190 +1,61 @@
-@import url(https://fonts.googleapis.com/css?family=Mr+Dafoe);
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web:900);
-@import url(https://fonts.googleapis.com/css?family=Righteous);
-@import url(https://fonts.googleapis.com/css?family=Candal);
-
-@import url(https://fonts.googleapis.com/css?family=Permanent+Marker);
-
-@import url(https://fonts.googleapis.com/css?family=Monoton);
-
-
-body { 
-  background: #000; 
-  color: #fff; 
-  position: relative;
-  z-index: -2;
-  height: 760px;
+/*main css file for common pages*/
+body{
+    color: white;
+    background-image: url("/images/icerink.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+table{
+    border-collapse: collapse;
 }
 
-@media (max-width: 768px) {
-  body { 
-    background: #000; 
-    color: #fff; 
+td,th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #dddddd;
+    color: black;
+}
+
+hr{
+    border: 1px solid red;
+}
+
+.header{
+    padding: 20px;
+    background-color: #21242A;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.content{
+    background-color:#21242A;
+    padding: 10px;
+    opacity: 0.8;
+}
+
+.chrome{
     position: relative;
-    z-index: -2;
-    height: 1400px;
-  }
-}
-
-.chrome {
-  position: relative;
-  background: linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 4px #f5f5f5;
-  font-size: 300px;
-  font-family: 'Titillium Web', sans-serif;
-  font-style: italic;
-  margin: 0;
-  line-height: 1;
-  background-position: center;
-  width: 2000px;
-}
-
-.chrome:before {
-  content: 'NHL';
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 10;
-  background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
-  background-position:-680px 0;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-stroke: 0;
-  padding-right: 300px;
-  animation: chrome_effect 4s 4s linear infinite;
-}
-
-.dreams {
-  position: absolute;
-  margin: 0px;
-  font-family: 'Mr Dafoe', cursive;
-  font-size: 160px;
-  color: #F975F7 ;
-  transform:rotate(-15deg);
-  -ms-transform:rotate(-15deg); /* IE 9 */
-  -webkit-transform:rotate(-15deg); /* Safari and Chrome */
-  margin-left: 200px;
-  margin-top: -120px;
-  margin-bottom: 0px;
-  -webkit-text-stroke: 1px #f008b7;
-  -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
-  z-index: 20;
-}
-
-@media (max-width: 768px) {
-  .chrome {
-    position: relative;
-    background-image: -webkit-linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
+    background: linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 4px #f5f5f5;
-    font-size: 200px;
+    -webkit-text-stroke: 1px #f5f5f5;
     font-family: 'Titillium Web', sans-serif;
     font-style: italic;
     margin: 0;
     line-height: 1;
-    width: 768px;
-  }
+    background-position: center;
 }
 
-@media (max-width: 768px) {
-  .chrome:before {
-    content: 'NHL';
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 10;
-    background-image: -webkit-linear-gradient(-40deg, transparent 0%, transparent 40%, #fff 50%, transparent 60%, transparent 100%);
-    background-position:-680px 0;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-stroke: 0;
-    padding-right: 300px;
-
-    animation: chrome_effect 4s 4s linear infinite;
-  }
-}
-
-@media (max-width: 768px) {
-  .dreams {
-    position: absolute;
+.dreams {
+    position: relative;
     margin: 0px;
     font-family: 'Mr Dafoe', cursive;
-    font-size: 100px;
     color: #F975F7 ;
-    transform:rotate(-15deg);
-    -ms-transform:rotate(-15deg); /* IE 9 */
-    -webkit-transform:rotate(-15deg); /* Safari and Chrome */
-    margin-left: 150px;
-    margin-top: -120px;
-    margin-bottom: 30px;
     -webkit-text-stroke: 1px #f008b7;
     -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
-    z-index: 20;
-  }
-}
-
-.button {
-  color: #F975F7;
-  background: black;
-}
-
-h3{
-  color:#F975F7;
-  font-size: 24px;
-  font-weight: bold;
-}
-.title{
-  color: #F975F7;
-}
-
-.windows .dreams {
-  -webkit-text-stroke: 4px #f008b7;
-}
-
-.section {
-  display: flex;
-  align-items: center;
-}
-
-
-.icecontainer {
-  position: relative;
-  color: #111111;
-}
-
-.icebackground {
-  content:'';
-  background: url('icerink.png') 0 0 no-repeat;
-  width: 1400px;
-  height: 620px;
-  color: #111111;
-  position: absolute;
-  top:0;
-  z-index: -1;
-}
-
-.table {
-  background-color: #96d3fc;
-  color: #111111;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .icebackground {
-    background: url('icerink1.png') 0 0 no-repeat;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-@keyframes chrome_effect {
-  0% {background-position: -680px 0;}
-  10% {background-position: 420px 0;}
-  100% {background-position: 420px 0;}
 }

@@ -8,6 +8,21 @@ module.exports = function(app) {
     });
   });
 
+  /*
+  //update players teams by teamname
+  app.put("/api/hockey/:teamname", function(req, res) {
+    db.player_info.update(
+      req.body,
+      {
+        where: {
+          belongTo: req.params.teamname,
+        }
+      }
+    ).then(function(dbhockey){
+      res.json(dbhockey);
+    });
+  });*/
+
   //update boolean isDrafted by id
   app.put("/api/hockey/:id", function(req,res) {
     db.player_info.update(

@@ -1,8 +1,29 @@
 /* General CSS */
-
 body {
     font-family: Helvetica, sans-serif;
-    color:white;
+    color: white;
+    background-image: url("/images/icerink.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+td,th{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){
+    background-color: #dddddd;
+    color: black;
+}
+
+hr{
+    border: 1px solid red;
 }
 
 .red {
@@ -11,7 +32,19 @@ body {
     color: white;
 }
 
+.dreams {
+    position: relative;
+    margin: 0px;
+    font-family: 'Mr Dafoe', cursive;
+    color: #F975F7 ;
+    -webkit-text-stroke: 1px #f008b7;
+    -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+}
 
+.dataContainer{
+    height: 80vh;
+    overflow: scroll;
+}
 
 /* header area of the website */
 
@@ -35,7 +68,7 @@ body {
 }
 
 .content {
-    margin-top: 50px;
+    margin-top: 2vh;
     background-color:#21242A;
     padding: 10px;
 };
@@ -48,13 +81,10 @@ body {
 /* Main Content Area */
 
 .content2 {
-    margin-top: 40px;
-    height: 600px;
+    margin-top: 5vh;
+    padding: 10px;
     background-color: #21242A;
-}
-
-.content3 {
-    padding-top: 30px;
+    opacity: 0.8;
 }
 
 .white-box {

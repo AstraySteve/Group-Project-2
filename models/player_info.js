@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: false, 
         },
-        belongTo: {
+        belongTo:{
             type: DataTypes.STRING,
             defaultValue: null,
         }
