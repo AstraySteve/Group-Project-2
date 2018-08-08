@@ -3,26 +3,36 @@ var db = require("../models");
 module.exports = function(app, passport) {
   // Load index/ title page
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", {
+      cssLibrary: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css',
+      customCss: '/styles/stylesTitle.css'
+    });
   });
   
   app.get("/lobby", function(req, res) {
     db.Teams.findAll({}).then(function(teamData) {
-      //TODO: handle teamData to be passed to lobby page
-      //res.render("lobby", {handlebars variable hookups})
-      //console.log("TEAM DATA " + JSON.stringify(teamData));
-      res.render("lobby", {teamName: teamData}); //TEMP CODE REMOVE WHEN DONE
+      res.render("lobby", {
+        cssLibrary:'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+        customCss: '/styles/styles.css',
+        teamData: teamData
+      });
     });
   });
 
   //LOGIN
   app.get("/signup", function(req, res) {
     //link to signup page
-    res.render("signup");
+    res.render("signup",{
+      cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+      customCss: '/styles/styles.css'
+    });
   });
   app.get("/signin", function(req,res) {
     //link to signin
-    res.render("signin");
+    res.render("signin",{
+      cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+      customCss: '/styles/styles.css',
+    });
   });
   app.get("/logout", function(req, res) {
     //logout routine, redirects to lobby
@@ -52,59 +62,103 @@ module.exports = function(app, passport) {
     }
   );
 
+  //Profile Page
   app.get("/profile/:userid", isLoggedIn, function(req,res) {
-    //link to user profile page
     var userID = req.params.userid;
     db.Teams.findOne({
       where:{teamowner: userID},
     }).then(function(data){
-      //TODO: handle data to be displayed for team stats
-      //if null return blank, else return team data
-      var teamName = "";
-      var playerList = [];
-      if (data!=null){
-        teamName = data.teamname;
-        playerList = [data.player1, data.player2, data.player3, data.player4, data.player5];
+      if(data!=null){
+        //if there is a team found with this username
+        var teamStat = data;
+        //find all players belonging to this team
+        db.player_info.findAll({
+          where: {belongTo: data.teamname},
+        }).then(function(data){
+          var teamName = data[0].belongTo;
+          res.render("profilePage", {
+            cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+            customCss: '/styles/stylesProfile.css',
+            userName: userID,
+            teamName: teamStat.teamname, 
+            playerList: data,
+            teamRanking: teamStat.ranking,
+            teamGoals: teamStat.goals,
+            teamAssists: teamStat.assists,
+            teamTotal: teamStat.total_points,
+            teamCost: teamStat.total_cost
+          })
+        })
       }
-      res.render("profilePage", {userName: userID, teamName: teamName, playerList: playerList});
+      else{
+        //render this if there is no team associated to user
+        res.render("profilePage",{
+          cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+          customCss: '/styles/stylesProfile.css',
+          userName: userID,
+          teamName: "Team not created"
+        })
+      }
     });
   });
   
-  //Samy's adds for the team create page
-  app.get("/teamCreate", function(req, res) {
-    db.player_info.findAll({}).then(function(playerList) {
-      res.render("teamCreate", {playerList});
+  //helper function to get players not assigned to team
+  getAvaliablePlayers =(playerList, team)=>{
+    var allPlayers = [];
+    var players = [];
+    var teamPlayers = [];
+    for(var i=0; i<playerList.length; i++){
+      if(playerList[i].isDrafted == false){
+        players.push(playerList[i]);
+      }
+      else if(playerList[i].belongTo == team){
+        teamPlayers.push(playerList[i]);
+      }
+    }
+    allPlayers.push(players);
+    allPlayers.push(teamPlayers);
+    return allPlayers;
+  }
+
+  //Team Create/Edit/Manage Page
+  app.get("/teamcreate/:userID", function(req,res){
+    var userID = req.params.userID;
+    db.Teams.findOne({
+      where:{teamowner: userID},
+    }).then(function(teamData){
+      if(teamData!=null){
+        var teamStat = teamData;
+      }
+      else{
+        teamStat = {
+          /*ranking: "N/A",*/
+          goals: 0,
+          assists: 0,
+          total_points:0,
+          total_cost: 0,
+        }
+      }
+      db.player_info.findAll({}).then(function(playerList) {
+        var avaliablePlayers = getAvaliablePlayers(playerList, teamStat.teamname);
+        res.render("teamCreate", {
+          cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+          customCss: '/styles/stylesProfile.css',
+          userName: userID,
+          team: teamStat,
+          teamPlayers: avaliablePlayers[1],
+          playerList: avaliablePlayers[0]
+        })
+      });
     });
   });
-
-
-  app.put('/teamCreate/update', function(req, res){
-    db.player_info.update(req.body.player_info_id, function(result){
-        console.log(result);
-        response.redirect('/');
-    })
-  });
-
-  
-  app.get("/teamCreate", function(req, res) {
-    db.teams.findAll({}).then(function(teamList) {
-      res.render("teamCreate", {teamList});
-    });
-  });
-
-
-  app.put('/teamCreate/update', function(req, res){
-    db.teams.update(req.body.player_info_id, function(result){
-        console.log(result);
-        response.redirect('/');
-    })
-  });
-  //End of Samy's adds for the team create page
 
   //CATCH ALL CODE
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
-    res.render("404");
+    res.render("404", {
+        cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+        customCss: '/styles/styles.css'
+    });
   });
 
   //Check if user is logged in

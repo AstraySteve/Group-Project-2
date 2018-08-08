@@ -2,48 +2,45 @@
     This is the profile page
 -->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark header">
-    <h3 class="navbar-brand subhead">Welcome, {{userName}}</h3>
-    </button>
-    
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Menu
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/teamcreate">Manage Team</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="stats.html">Team Stats</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout">Logout</a>
+<div class="container-fluid header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="d-inline subhead dreams">Welcome, <span id="username">{{userName}}</span></h3>
+            </div>
+            <div class="col-md-6 text-right">
+            <!-- Example single danger button -->
+                <div class="btn-group">
+                <button type="button" class="btn btn-lg btn-outline-primary dropdown-toggle button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu
+                </button>
+                <div class="dropdown-menu">
+                    <button class="btn btn-sm dropdown-item manageTeam">Manage Team</button>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
-            </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+            </div>
+            </div>
+        </div>
     </div>
-</nav>
+</div>
 
+<!--Main content area-->
 <div class="container content">
     <div class="container box">
         <div class="row">
             <div class="col-md-6">
-                <h2 class="d-inline subhead">Team Manager: {{userName}}</h2>
+                <h3 class="d-inline subhead dreams">Team Manager</h3>
             </div>
             <div class="col-md-6">
                 <ul class="nav justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/teamcreate">Create Team <i class="fa fa-plus" aria-hidden="true"></i>
-                        </a>
+                        <button class="nav-link active btn btn-secondary manageTeam">Create Team <i class="fa fa-plus" aria-hidden="true"></i>
+                        </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/teamcreate">Edit Team <i class="fa fa-cog fa-spin" aria-hidden="true"></i>
-                        </a>
+                        <button class="nav-link btn btn-secondary manageTeam">Edit Team <i class="fa fa-cog fa-spin" aria-hidden="true"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -56,40 +53,41 @@
         <div class="row">
             <div class="col-md-12">
             <!--This is where the data will go-->
-                <h3>Team Name: <span id="teamName">{{teamName}}</span></h3>
+                <h3 class="dreams">Team Name: <span id="teamName">{{teamName}}</span></h3>
+                <br>
                 <table>
                     <tr>
-                        <th style="padding: 8px; text-align: left">Player</th>
-                        <th style="padding: 8px; text-align: left">Cost</th>
-                        <th style="padding: 8px; text-align: left">Goals</th>
-                        <th style="padding: 8px; text-align: left">Assists</th>
-                        <th style="padding: 8px; text-align: left">Total</th>
+                        <th>Player</th>
+                        <th>Cost</th>
+                        <th>Goals</th>
+                        <th>Assists</th>
+                        <th>Total</th>
                     </tr>
                     {{#each playerList}}
                         <tr>
-                            <td style="padding: 8px; text-align: left">{{this}}</td>
-                            <td style="padding: 8px; text-align: left">300000</td>
-                            <td style="padding: 8px; text-align: left">20</td>
-                            <td style="padding: 8px; text-align: left">4</td>
-                            <td style="padding: 8px; text-align: left">60</td>
+                            <td>{{this.player_name}}</td>
+                            <td>{{this.cap}}</td>
+                            <td>{{this.goals}}</td>
+                            <td>{{this.assists}}</td>
+                            <td>{{this.total_points}}</td>
                         </tr>
                     {{/each}}
                 </table>
                 <hr>
                 <table>
                     <tr>
-                        <th style="padding: 8px; text-align: left">Ranking</th>
-                        <th style="padding: 8px; text-align: left">Total Cost</th>
-                        <th style="padding: 8px; text-align: left">Total Goals</th>
-                        <th style="padding: 8px; text-align: left">Total Assists</th>
-                        <th style="padding: 8px; text-align: left">Total</th>
+                        <th>Ranking</th>
+                        <th>Total Cost</th>
+                        <th>Total Goals</th>
+                        <th>Total Assists</th>
+                        <th>Total</th>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; text-align: left">1</td>
-                        <td style="padding: 8px; text-align: left">60000000</td>
-                        <td style="padding: 8px; text-align: left">20</td>
-                        <td style="padding: 8px; text-align: left">4</td>
-                        <td style="padding: 8px; text-align: left">60</td>
+                        <td>{{teamRanking}}</td>
+                        <td>{{teamCost}}</td>
+                        <td>{{teamGoals}}</td>
+                        <td>{{teamAssists}}</td>
+                        <td>{{teamTotal}}</td>
                     </tr>
                 </table>
             </div>
@@ -105,5 +103,6 @@
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-
+<!--profile page script-->
+<script src="/js/profile.js"></script>
 

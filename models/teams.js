@@ -13,60 +13,25 @@ module.exports = function(sequelize, DataTypes) {
                 len: [1,20],
             },
         },
-        player1: {
-            type: DataTypes.STRING,
-            defaultValue: null,
-            validate:{
-                len: [1],
-            },
-        },
-        player2: {
-            type: DataTypes.STRING,
-            defaultValue: null,
-            validate:{
-                len: [1],
-            },
-        },
-        player3: {
-            type: DataTypes.STRING,
-            defaultValue: null,
-            validate:{
-                len: [1],
-            },
-        },
-        player4: {
-            type: DataTypes.STRING,
-            defaultValue: null,
-            validate:{
-                len: [1],
-            },
-        },
-        player5: {
-            type: DataTypes.STRING,
-            defaultValue: null,
-            validate:{
-                len: [1],
-            },
-        },
         ranking: {
             type: DataTypes.INTEGER,
             defaultValue: null,
         },
         goals: {
             type: DataTypes.INTEGER,
-            defaultValue: null,
+            defaultValue: 0,
         },
         assists: {
             type: DataTypes.INTEGER,
-            defaultValue: null,
+            defaultValue: 0,
         },
         total_points: {
             type: DataTypes.INTEGER,
-            defaultValue: null,
+            defaultValue: 0,
         },
         total_cost:{
             type: DataTypes.FLOAT,
-            defaultValue:null,
+            defaultValue: 0,
         }
     });
     return Teams;

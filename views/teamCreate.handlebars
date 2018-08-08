@@ -1,85 +1,100 @@
-<nav class="level is-mobile">
-        <div class="level-item">
-            <div>
-                <p class="title">NHL Fantasy Draft</p>
+<div class="container-fluid header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="d-inline subhead dreams" id="username">{{userName}}</h3>
             </div>
-        </div>
-        <div class="level-item has-text-centered">
-            <div>
-                <a href="/lobby"><p class="title">Return To Lobby</p></a>
+            <div class="col-md-6 text-right">
+                <div class="btn-group">
+                <button type="button" class="btn btn-lg btn-outline-primary dropdown-toggle button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Menu
+                </button>
+                <div class="dropdown-menu">
+                    <button class="btn dropdown-item" id="profile">Profile</button>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/logout">Logout</a>
+                </div>
             </div>
-        </div>
-</nav>
-
-<div class = "row">
-    <div class = "banner is-mobile">
-        <div class="columns">
-            <div class="column is-4">
-                <h3>Total Spent:</h3><h3 id = "totalSalary">{{this.total_cost}}</h3>
-                <input class="button" type="submit" value="Save Team">
             </div>
-            <div class="column is-4">
-                    <h3>Total Points:</h3><h3 id = "totalPoints">{{this.total_points}}</h3>
-            </div>
-
         </div>
     </div>
 </div>
 
-<div class = "icecontainer">
-    <div class = "icebackground">
-            <div class="columns is-mobile">
-                <div class="column is-4">
-                    <table class="table playerTable">
-                    <thead>
-                        <tr><th colspan="5">Your Team's Players</th></tr>
-                        <th>Name</th>
-                        <th>Goals</th>
-                        <th>Assists</th>
-                        <th>Points</th>
-                        <th>Remove Player?</th>
+<!--Main Content-->
+<div class="container content2">
+    <div class="row">
+        <div class="col-12 col-md-6 dataContainer" id="teamList">
+            <div id="nameZone">
+                <h5>
+                    Team Name: <span id="teamname">{{team.teamname}}</span>
+                </h5>
+                <button class="btn btn-sm" id="editTeam">Edit Team Name</button>
+            </div>
+            <hr>
+            <table>
+                <tr>
+                    <th>Total Cost</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Total Points</th>
+                </tr>
+                <tr>
+                    <td>{{team.total_cost}}</td>
+                    <td>{{team.goals}}</td>
+                    <td>{{team.assists}}</td>
+                    <td>{{team.total_points}}</td>
+                </tr>
+            </table>
+            <hr>
+            <table id="teamTable">
+                <tr>
+                    <th>Player Name</th>
+                    <th>Cap</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Total Points</th>
+                    <th></th>
+                </tr>
+                {{#each teamPlayers}}
+                    <tr>
+                        <td>{{this.player_name}}</td>
+                        <td>{{this.cap}}</td>
+                        <td>{{this.goals}}</td>
+                        <td>{{this.assists}}</td>
+                        <td>{{this.total_points}}</td>
+                        <td><button class="btn btn-light btn-sm remove" data-num="{{this.id}}">remove</button></td>
                     </tr>
-                    </thead>
-                    <!-- Append Player 1 Table-->
-                        {{#each playerList}}
-                        {{#if this.isDrafted}}
-                            <tr><th>{{this.player_name}}</th> <th>{{this.goals}}</th> <th>{{this.assists}}</th> <th>{{this.total_points}}</th></tr>
-
-                            <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
-                                <input type="hidden" name="player_info_id" type="text" value={{this.id}}>
-                                <input class="button" type="submit" value="Remove Player">
-                            </form>                                     
-                        {{/if}}
-                        {{/each}}
-                </div>
-                <div class="column is-8">
-                    <table class="table playerTable">
-                        <thead>
-                            <tr><th colspan="7">Available Players</th></tr>
-                            <th>#</th>
-                            <th>Name</th>
-                            <th>Salary</th>
-                            <th>Goals</th>
-                            <th>Assists</th>
-                            <th>Points</th>
-                            <th>Draft Player?</th>
-                        </tr>
-                        </thead>
-                        <!-- Append Player Table-->
-                        {{#each playerList}}
-                        <!--{{#unless this.isDrafted}}-->
-
-                            <tr><th>{{this.id}}</th> <th>{{this.player_name}}</th> <th>{{this.cap}}</th> <th>{{this.goals}}</th> <th>{{this.assists}}</th> <th>{{this.total_points}}</th> 
-                            <th>
-                            <form method="POST" action="/teamCreate/update?_method=PUT" class="button-size">
-                                <input type="hidden" name="player_info_id" type="text" value={{this.id}}>
-                                <input class="button" type="submit" value="Select Player">
-                            </form></th>
-                            </tr>
-                        <!--{{/unless}}-->
-                        {{/each}}
-                    </table>
-                </div>
-            </div> 
+                {{/each}}
+            </table>
+        </div>
+        <div class="col-12 col-md-6 dataContainer" id="playerList">
+            <table>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Cap</th>
+                    <th>Goals</th>
+                    <th>Assists</th>
+                    <th>Total Points</th>
+                    <th></th>
+                </tr>
+                {{#each playerList}}
+                    <tr>
+                        <td>{{this.player_name}}</td>
+                        <td>{{this.cap}}</td>
+                        <td>{{this.goals}}</td>
+                        <td>{{this.assists}}</td>
+                        <td>{{this.total_points}}</td>
+                        <td><button class="btn btn-light btn-sm add" data-num="{{this.id}}">add</button></td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
     </div>
 </div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<!--page script-->
+<script src="/js/teamCreate.js"></script>
