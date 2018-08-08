@@ -67,6 +67,39 @@ module.exports = function(app, passport) {
     db.Teams.findOne({
       where:{teamowner: userID},
     }).then(function(data){
+      if(data!=null){
+        //if there is a team found with this username
+        var teamStat = data;
+        //find all players belonging to this team
+        db.player_info.findAll({
+          where: {belongTo: data.teamname},
+        }).then(function(data){
+          var teamName = data[0].belongTo;
+          res.render("profilePage", {
+            cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+            customCss: '/styles/stylesProfile.css',
+            userName: userID,
+            teamName: teamName, 
+            playerList: data,
+            teamRanking: teamStat.ranking,
+            teamGoals: teamStat.goals,
+            teamAssists: teamStat.assists,
+            teamTotal: teamStat.total_points,
+            teamCost: teamStat.total_cost
+          })
+        })
+      }
+      else{
+        //render this if there is no team associated to user
+        res.render("profilePage",{
+          cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+          customCss: '/styles/stylesProfile.css',
+          userName: userID,
+          teamName: "Team not created"
+        })
+      }
+      
+      /*
       //if null return blank, else return team data
       var teamName = "";
       var playerList = [];
@@ -80,7 +113,7 @@ module.exports = function(app, passport) {
         userName: userID, 
         teamName: teamName, 
         playerList: playerList
-      });
+      });*/
     });
   });
   

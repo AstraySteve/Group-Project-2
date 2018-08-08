@@ -65,11 +65,11 @@
                     </tr>
                     {{#each playerList}}
                         <tr>
-                            <td style="padding: 8px; text-align: left">{{this}}</td>
-                            <td style="padding: 8px; text-align: left">300000</td>
-                            <td style="padding: 8px; text-align: left">20</td>
-                            <td style="padding: 8px; text-align: left">4</td>
-                            <td style="padding: 8px; text-align: left">60</td>
+                            <td style="padding: 8px; text-align: left">{{this.player_name}}</td>
+                            <td style="padding: 8px; text-align: left">{{this.cap}}</td>
+                            <td style="padding: 8px; text-align: left">{{this.goals}}</td>
+                            <td style="padding: 8px; text-align: left">{{this.assists}}</td>
+                            <td style="padding: 8px; text-align: left">{{this.total_points}}</td>
                         </tr>
                     {{/each}}
                 </table>
@@ -83,11 +83,11 @@
                         <th style="padding: 8px; text-align: left">Total</th>
                     </tr>
                     <tr>
-                        <td style="padding: 8px; text-align: left">1</td>
-                        <td style="padding: 8px; text-align: left">60000000</td>
-                        <td style="padding: 8px; text-align: left">20</td>
-                        <td style="padding: 8px; text-align: left">4</td>
-                        <td style="padding: 8px; text-align: left">60</td>
+                        <td style="padding: 8px; text-align: left">{{teamRanking}}</td>
+                        <td style="padding: 8px; text-align: left">{{teamCost}}</td>
+                        <td style="padding: 8px; text-align: left">{{teamGoals}}</td>
+                        <td style="padding: 8px; text-align: left">{{teamAssists}}</td>
+                        <td style="padding: 8px; text-align: left">{{teamTotal}}</td>
                     </tr>
                 </table>
             </div>

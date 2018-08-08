@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
         isDrafted: {
             type: DataTypes.BOOLEAN,
             defaultValue: false, 
+        },
+        belongTo: {
+            type: DataTypes.STRING,
+            defaultValue: null,
         }
     },{
         freezeTableName: true
