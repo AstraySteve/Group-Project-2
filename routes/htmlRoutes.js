@@ -3,7 +3,10 @@ var db = require("../models");
 module.exports = function(app, passport) {
   // Load index/ title page
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", {
+      cssLibrary: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css',
+      customCss: '/styles/styles.css'
+    });
   });
   
   app.get("/lobby", function(req, res) {
@@ -18,11 +21,17 @@ module.exports = function(app, passport) {
   //LOGIN
   app.get("/signup", function(req, res) {
     //link to signup page
-    res.render("signup");
+    res.render("signup",{
+      cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+      customCss: '/styles/stylesProfile.css'
+    });
   });
   app.get("/signin", function(req,res) {
     //link to signin
-    res.render("signin");
+    res.render("signin",{
+      cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+      customCss: '/styles/stylesProfile.css',
+    });
   });
   app.get("/logout", function(req, res) {
     //logout routine, redirects to lobby
@@ -58,7 +67,6 @@ module.exports = function(app, passport) {
     db.Teams.findOne({
       where:{teamowner: userID},
     }).then(function(data){
-      //TODO: handle data to be displayed for team stats
       //if null return blank, else return team data
       var teamName = "";
       var playerList = [];
@@ -66,7 +74,13 @@ module.exports = function(app, passport) {
         teamName = data.teamname;
         playerList = [data.player1, data.player2, data.player3, data.player4, data.player5];
       }
-      res.render("profilePage", {userName: userID, teamName: teamName, playerList: playerList});
+      res.render("profilePage", {
+        cssLibrary: 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css',
+        customCss: '/styles/stylesProfile.css',
+        userName: userID, 
+        teamName: teamName, 
+        playerList: playerList
+      });
     });
   });
   

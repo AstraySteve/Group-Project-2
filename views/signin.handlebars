@@ -1,11 +1,27 @@
 <!--
     handlebar for the signin user page
 -->
-<h1>SIGNIN</h1>
-<form id="signin" name="signin" method="post" action="signin">
-    <label for="username">username</label>
-    <input class="text" name="username" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Sign In" />
-</form>
+<div class="container-fluid header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="d-inline subhead">NHL Fantasy Draft</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container content">
+    <h5 class="subhead">SIGN IN</h5>
+    <div class="row justify-content-center">
+        <form id="signin" name="signin" method="post" action="signin">
+            <label class="subhead" for="username">username</label>
+            <input class="text" name="username" type="text" />
+            <br>
+            <label class="subhead" for="password">Password</label>
+            <input name="password" type="password" />
+            <br>
+            <input class="btn btn-block" type="submit" value="Sign In" />
+        </form>
+    </div>
+</div>
