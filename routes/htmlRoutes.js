@@ -101,16 +101,6 @@ module.exports = function(app, passport) {
   });
   //End of Samy's adds for the team create page
 
-  //TEST CODE REMOVE WHEN DONE
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
-
   //CATCH ALL CODE
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
