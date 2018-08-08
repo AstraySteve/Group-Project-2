@@ -5,27 +5,14 @@ module.exports = function(app, passport) {
   app.get("/", function(req, res) {
     res.render("index");
   });
-
-  var welcome = "Welcome";
-  var greetings = " log in to begin constructing your Team!";
-  var rules2 = "the salary cap of $30 million. Compete against other challengers to see where you rank on the leaderboard.";
-  var subtitle = "Rules:";
-  var rules = "Choose from the list of players below to make a team of 5 skaters. Your challenge is to build your team within";
   
   app.get("/lobby", function(req, res) {
-    // db.Teams.findAll({}).then(function(teamData) {
+    db.Teams.findAll({}).then(function(teamData) {
       //TODO: handle teamData to be passed to lobby page
       //res.render("lobby", {handlebars variable hookups})
-      res.render("lobby", {
-        welcome: welcome,
-        greetings: greetings,
-        rules2: rules2,
-        
-        subtitle: subtitle,
-        
-        rules: rules
-      }); //TEMP CODE REMOVE WHEN DONE
-    // });
+      //console.log("TEAM DATA " + JSON.stringify(teamData));
+      res.render("lobby", {teamName: teamData}); //TEMP CODE REMOVE WHEN DONE
+    });
   });
 
   //LOGIN
@@ -98,6 +85,7 @@ module.exports = function(app, passport) {
     })
   });
 
+  
   app.get("/teamCreate", function(req, res) {
     db.teams.findAll({}).then(function(teamList) {
       res.render("teamCreate", {teamList});
@@ -112,16 +100,6 @@ module.exports = function(app, passport) {
     })
   });
   //End of Samy's adds for the team create page
-
-  //TEST CODE REMOVE WHEN DONE
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
 
   //CATCH ALL CODE
   // Render 404 page for any unmatched routes
