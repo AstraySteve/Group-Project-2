@@ -37,7 +37,6 @@ module.exports = function(app) {
             res.json(userData);
         });
     });
-<<<<<<< HEAD
 
     //Delete user with user id userid
     app.delete('/api/users/:userid', function(req,res) {
@@ -50,6 +49,4 @@ module.exports = function(app) {
             res.json(data);
         });
     });
-=======
->>>>>>> 74e8b14d9ec5a75c074a059179186b863ca20f61
 };

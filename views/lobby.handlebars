@@ -20,18 +20,21 @@
 
   <div class="columns">
       <div class="column top">
-            <h1 id="welcomefont">{{welcome}}</h1>
-            <p>{{greetings}}</p>
+            <h1 id="welcomefont">Welcome</h1>
+            <p>log in to begin constructing your Team!</p>
       </div>
   </div>
 
     <div class="rulesection">
-        <h3>{{subtitle}}</h3>
-        <p>{{rules}}</p>
+        <h3>Rules:</h3>
+        <p>Choose from the list of players below to make a team of 5 skaters. Your challenge is to build your team within</p>
         {{!-- <br> --}}
-        <p>{{rules2}}</p>
+        <p>the salary cap of $30 million. Compete against other challengers to see where you rank on the leaderboard.</p>
     </div>
 
+    {{#each teamName}}
+        <h2>Team Name: {{this.teamname}}</h2>
+    {{/each}}
     <table>
         <thead> 
             <th class="pad">Player Name</th> 
@@ -55,8 +58,8 @@
         </tbody> 
     </table> 
 
-<a href="/login"><button id="login">login</button></a>
-<a href="/login"><button id="sign up">Sign up</button></a>
+<a href="/signin"><button id="signin">Sign In</button></a>
+<a href="/signup"><button id="signup">Sign Up</button></a>
 </body>
 
 </html>
