@@ -5,6 +5,8 @@ module.exports = function(app, passport) {
   app.get("/", function(req, res) {
     res.render("index");
   });
+
+ 
   
   app.get("/lobby", function(req, res) {
     db.Teams.findAll({}).then(function(teamData) {
@@ -85,7 +87,6 @@ module.exports = function(app, passport) {
     })
   });
 
-  
   app.get("/teamCreate", function(req, res) {
     db.teams.findAll({}).then(function(teamList) {
       res.render("teamCreate", {teamList});
